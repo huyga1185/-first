@@ -1,0 +1,156 @@
+<!-- dangnhap -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Đăng nhập tài khoản</title>
+	<style>   
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: 'Times New Roman', Times, serif;
+		}	
+
+        .container {
+            margin: 100px auto;
+            max-width: 500px;
+            background-color: white;
+            border: 1px solid black;
+            padding: 30px;
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container form button {
+            border: none;
+            border-radius: 2px;
+            padding: 10px;
+            font-size: 20px;
+            background-color: #F3EEEA;
+            color: black;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .container form button:hover {
+            background-color: #EBE3D5;
+        }
+
+        .container form label {
+            margin-bottom: 5px;
+        }
+        
+        .container form input[type = "text"] {
+            margin-bottom: 5px;
+            padding: 10px;
+        }
+
+        .container form .password {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .container form .password button {
+            width: 10%;
+            padding: 10px;
+            margin-bottom: 5px;
+            margin-left: 3px;
+        }
+
+        .container form .password input[type = "password"] {
+            margin-bottom: 5px;
+            padding: 10px;
+            width: 90%;
+        }
+
+        .container form .password input[type = "text"] {
+            margin-bottom: 5px;
+            padding: 10px;
+            width: 90%;
+        }
+
+        .container form .check input[type = "checkbox"] {
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+	</style>
+
+    <link rel="stylesheet" 
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> 
+
+</head>    
+<body>    
+	
+	<div class="container">
+
+		<h1>Đăng nhập</h1>
+
+		<form method="post" onsubmit="return validatePassword();">
+
+			<label for="username">Tên đăng nhập: </label>
+			<input type="text" name="username" placeholder="Email/Tên đăng nhập/Sđt" required>
+            
+            <label for="password">Mật khẩu</label>
+            <div class="password">
+
+			    <input type="password" name="password" id="password" placeholder="Mật khẩu" required>
+                <button type="button" onclick="togglePasswordVisibility()">
+                    <span class="material-symbols-outlined" id="visibility_icon">
+                    visibility_off
+                    </span>
+                </button>
+            
+            </div>
+			
+            <div class="check">
+
+				<input type="checkbox" name="remember">
+				<label for="remember">Tự động đăng nhập lần sau</label>
+
+			</div>
+
+			<button type="submit">Đăng nhập</button>
+
+			<label><a href="forgottenpassword.html">Quên mật khẩu</a></label>
+		</form>
+
+		<p>Bạn chưa có tài khoản? <a href="signup.html">Đăng ký</a></p>
+
+	</div>
+
+    <script>
+        var togglePasswordVisibility = function() {
+            var passwordField = document.getElementById("password");
+            var visibility_icon = document.getElementById("visibility_icon");
+            if (passwordField.type == "password") {
+                passwordField.type = "text";
+                visibility_icon.innerHTML = '<span class="material-symbols-outlined">visibility</span>';
+            }
+            else {
+                passwordField.type = "password";
+                visibility_icon.innerHTML = '<span class="material-symbols-outlined">visibility_off</span>';
+            }
+        }
+
+        var validatePassword = function () {
+            var passwordField = document.getElementById("password").value;
+            if (passwordField < 8) {
+                alert("Mật khẩu quá ngắn!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</body>     
+</html>  

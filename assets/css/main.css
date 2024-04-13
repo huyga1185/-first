@@ -1,0 +1,74 @@
+.header {
+    height: 125px;
+    width: 100%;
+    background-image: linear-gradient(0, rgb(218, 40, 120), rgb(218, 28, 92));
+    position: fixed;
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__navbar-list {
+    list-style: none;
+    /* vì trình duyệt mặc định padding-left: 40px; */
+    padding-left: 0;
+    margin-top: 7px;
+}
+
+.header__navbar-item {
+    margin: 0 8px;
+    position: relative;
+}
+
+.header__navbar-item,
+.header__navbar-item-link {
+    display: inline-block;
+    font-size: 1.6rem;
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.header__navbar-item--separate::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 2px solid rgb(218, 80, 92);
+    height: 16px;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header__navbar-item-link:hover {
+    color:  var(--grey-color);
+}
+
+.header__navbar-icon-link {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.header__navbar-icon {
+    font-size: 1.8rem;
+}
+
+.header-with-search{
+    height: var(--header-with-search-height);
+    display: flex;
+    align-items: center;
+}
+
+.header-with-search__buyit-logo-img {
+    width: 162px;
+}
+
+.header-with-search__search-section {
+    flex: 1;
+    height: 40px;
+    background-color: var(--white-color);
+    border-radius: 2px;
+}
+
+
